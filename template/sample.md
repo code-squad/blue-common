@@ -1,5 +1,5 @@
 <!-- page_number: true -->
-# ![30%](images/img_white.png) 
+# ![30%](images/img_blue.png) 
 # Title Here
 <p align='center'>
 CodeSquad Master <br>
