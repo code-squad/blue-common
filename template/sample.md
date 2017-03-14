@@ -1,4 +1,3 @@
-<!-- page_number: true -->
 # ![30%](images/img_blue.png) 
 # Title Here
 <p align='center'>
@@ -19,15 +18,6 @@ Hoyoung Jung
 
 
 
---- 
-<!-- page_number: true -->
-Good Luck! :v:
-```
-emoji :v:
-```
-![50%](https://octodex.github.com/images/femalecodertocat.png)
-
 ---
-<!-- page_number: true -->
-# 참고 링크
-- http://codesquad.kr
+# Thanks
+##  참고 링크
