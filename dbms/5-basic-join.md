@@ -64,3 +64,8 @@ SELECT U.ID AS USER_ID, NAME,
     FROM USER U JOIN BOARD B 
     ON U.ID = B.UID;
 ```
+
+---
+# Join
+## 실행 결과
+![100%](images/result1.png)
