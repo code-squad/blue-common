@@ -24,6 +24,11 @@ https://milooy.wordpress.com/2015/10/08/daily-commit/
 - 원격 저장소
 
 ---
+![git state diagram](http://uclouvain.github.io/osis-louvain-documentation/doc/development/images/git-state-diagram.png)
+
+http://uclouvain.github.io/osis-louvain-documentation/doc/development/images/git-state-diagram.png
+
+---
 ## 프로젝트 생성 
 
 > git init .
@@ -64,7 +69,13 @@ https://milooy.wordpress.com/2015/10/08/daily-commit/
 ## branch 
 > git branch 브랜치이름 [커밋]
 > git checkout 브랜치이름 
-> git checkout -b 새브랜치이름 
+> git checkout -b 새브랜치이름 [커밋]
+> git branch -f 브랜치이름 커밋 
+
+---
+# 실습
+http://learngitbranching.js.org/?NODEMO
+![](images/git-lab.png)
 
 ---
 ## 참조

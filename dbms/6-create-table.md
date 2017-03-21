@@ -1,5 +1,5 @@
 # ![80%](images/img_blue.png) 
-# DBMS는 왜 사용하나요?
+# CREATE TABLE
 <p align='center'>
 CodeSquad Master <br>
 Hoyoung Jung
@@ -7,4 +7,4 @@ Hoyoung Jung
 
 ---
 <!-- page_number: true -->
-# CRUD란?
+# 테이블 생성하기 
