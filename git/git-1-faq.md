@@ -5,7 +5,17 @@
 
 ---
 <!-- page_number: true -->
+# 오늘의 팁: TIL
+https://milooy.wordpress.com/2015/10/08/daily-commit/
 
+## 의도적 TIL 
+- developed by me
+- 아주 긴 시간을 목표로 잡는다. 
+- 안 하는 날도 있을 수 있다. 
+- 못하면 진도를 누적하지 않는다. 
+- 미션을 주고 달성하도록 노력한다. 
+
+---
 # Git Review 
 ## 저장소 
 - 작업 디렉토리
@@ -141,7 +151,7 @@ squash
 > git commit --amend 
 
 ---
-# FAQ2
+# FAQ 2
 
 민감한 파일을 git history에서 완전히 지우고 싶어요. 
 
@@ -149,6 +159,28 @@ squash
 > bfg --delete-files password.txt
 > git push --force
 
+https://help.github.com/articles/removing-sensitive-data-from-a-repository/
+
+---
+# FAQ 3
+
+git이 정상동작하지 않아요. 긴 시간 작업한 내용이 커밋이 안 됩니다. 살려 주세요 :angry: 
+```
+cd gitdir
+rm -rf .git* 
+cd ..
+git clone http://remote/mygit gitdir2
+cp -a gitdir gitdir2
+cd gitdir2
+# ... add, commit, push 
+```
+
+---
+# Branch 활용하기
+## GIT workflow
+## Github workflow
+https://guides.github.com/introduction/flow/
+## Gitlab workflow
 ---
 # Code Review with Github
 ## 권한 있는 저장소 
@@ -159,9 +191,12 @@ squash
 -  Give :star:
 
 ---
-<!-- page_number: true -->
 # 정적 홈페이지 기능 
 ## 기본 정적 프로젝트 홈페이지 만들기
 - 프로젝트를 myid.github.io 로 생성 
 ## 일반적인 정적 사이트 만들기 
 - https://pages.github.com
+
+---
+# 참고자료
+- https://help.github.com/articles/removing-sensitive-data-from-a-repository/
