@@ -1,0 +1,31 @@
+DROP TABLE IF EXISTS USER;
+CREATE TABLE USER (
+	ID VARCHAR(32),
+	NAME VARCHAR(32) NOT NULL,
+	PRIMARY KEY(ID)
+);
+
+DESC USER;
+
+INSERT INTO USER VALUES ('apple', 'honux'),('banana','crong'),('carrot','pobi');
+
+DROP TABLE IF EXISTS BOARD;
+CREATE TABLE BOARD(
+	ID INT NOT NULL AUTO_INCREMENT,
+	DATE DATE,
+	UID VARCHAR(32),
+	TITLE VARCHAR(64) NOT NULL,
+	PRIMARY KEY(ID),
+);
+
+DESC BOARD;
+
+INSERT INTO BOARD (DATE, UID, TITLE) VALUES 
+	('2015-1-1','apple', 'hello'), 
+	('2015-1-2','banana', 'hi'), 
+	('2015-1-3','apple', 'good'), 
+	('2015-1-4','banana', 'zizi'), 
+	('2015-1-3',NULL, 'I am hacker');
+
+SELECT * FROM USER;
+SELECT * FROM BOARD; 
