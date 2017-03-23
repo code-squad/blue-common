@@ -1,4 +1,4 @@
-# ![50%](images/img_white.png) 
+# ![50%](images/img_blue.png) 
 # Git Review, Tips, and FAQ
 #### CodeSquad Master 
 #### Hoyoung Jung
@@ -185,29 +185,6 @@ cp -a gitdir gitdir2
 cd gitdir2
 # ... add, commit, push 
 ```
-
----
-# Branch 활용하기
-## GIT workflow
-## Github workflow
-https://guides.github.com/introduction/flow/
-## Gitlab workflow
----
-# Code Review with Github
-## 권한 있는 저장소 
-- pull request -> review -> merge 
-## 권한 없는 저장소 
-- Fork & Pull request
-	- https://help.github.com/articles/creating-a-pull-request-from-a-fork/
--  Give :star:
-
----
-# 정적 홈페이지 기능 
-## 기본 정적 프로젝트 홈페이지 만들기
-- 프로젝트를 myid.github.io 로 생성 
-## 일반적인 정적 사이트 만들기 
-- https://pages.github.com
-
 ---
 # 참고자료
 - https://help.github.com/articles/removing-sensitive-data-from-a-repository/
