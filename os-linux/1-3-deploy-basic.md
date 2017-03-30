@@ -66,7 +66,30 @@ $ sudo apt install tmux
 
 평소에 하던 방식대로 소스를 clone해 온다. 
 
-## 돌아가게 만들어 보자.
+## 돌아가게 만들기
+node, swift 패키지를 설치해서 서버에서 내 프로젝트가 돌아갈 수 있게 구성한다. 
+
+맥의 브라우져를 통해서 확인하기 
+
+##  참고 링크
+
+https://nodejs.org/ko/download/package-manager/#debian-ubuntu-linux
+
+http://www.kitura.io/en/starter/settingup.html
+
+---
+## ngrok 활용해서 외부 접속하기
+
+https://ngrok.com/ 
+
+리눅스에서 다운받아서 실행 
+```
+$ ngrok http 포트번호
+```
+명령창 url로 접속 
+
+---
+## 돌아가게 만들기 2
 
 웹브라우져 등의 클라이언트 프로그램을 통해서 정상 동작 확인하기
 
@@ -75,12 +98,3 @@ SSH창을 닫아도 서비스가 동작하게 하려면?
 서버가 죽었을 때 자동으로 동작하게 하려면?
 
 재부팅했을 경우에도 서비스가 정상 동작하도록 만들기 
-
----
-##  참고 링크
-
-https://nodejs.org/ko/download/package-manager/#debian-ubuntu-linux
-
-http://www.kitura.io/en/starter/settingup.html
-
-

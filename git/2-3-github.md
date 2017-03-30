@@ -15,7 +15,12 @@
 > git stash --help
 > git stash 
 > git stash --list 
+> git stash apply [아이디]
+> git stash drop [아이디]
 > git stash pop [아이디]
+```
+git stash drop stash@{0}
+```
 
 [참고링크](https://git-scm.com/book/ko/v1/Git-%EB%8F%84%EA%B5%AC-Stashing)
 
@@ -30,6 +35,19 @@ https://guides.github.com/introduction/flow/
 # Code Review with Github
 ## 권한 있는 저장소의 경우 
 - pull request -> review -> merge 
+
+---
+# Github 풀리퀘 절차
+1. Master branch를 clone  
+2. 마스터로부터 새로운 브랜치를 생성
+    - 브랜치 이름은 구현할 기능 이름으로 지정
+3. add/commit/push
+4. pull request 생성 
+    - 베이스는 마스터로 지정
+5. 리뷰어 지정
+6. 리뷰어: 리뷰 및 리뷰 메시지 작성
+7. 작업자: 리뷰 내용 보고 커밋/푸시
+8. 6번과 7번을 반복 후 merge
 
 ---
 # Code Review with Github
