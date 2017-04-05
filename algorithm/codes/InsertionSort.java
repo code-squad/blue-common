@@ -56,17 +56,19 @@ public class InsertionSort {
 
 	//main
 	public static void main(String[] args) {
-		int[] arr = generateIntArray(20);
-		printArray(arr);
-
-		sort(arr);
-
-		//result
-		if (isSorted(arr)) {
-			System.out.println("Sorted Well");
+		for (int i = 0; i < 10; i++) {
+			int[] arr = generateIntArray(20);
 			printArray(arr);
-		} else {
-			System.out.println("Something Wrong");
+
+			sort(arr);
+
+			//result
+			if (isSorted(arr)) {
+				printArray(arr);
+				System.out.println("Sorted Well");
+			} else {
+				System.out.println("Something Wrong");
+			}
 		}
 	}
 }
