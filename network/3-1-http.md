@@ -60,7 +60,7 @@ WWW 상에서 정보를 주고받을 수 있는 프로토콜. 주로 HTML 문서
 ```
 $ echo "<h1>hello</h1>" > index.html
 # python2
-$ python -m SimpleHttpServer 8000
+$ python -m SimpleHTTPServer 8000
 # python3 
 $ python -m http.server 8000
 ```
