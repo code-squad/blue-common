@@ -29,7 +29,7 @@ E.F. Codd, "A Relational Model of Data for Large Shared Data Banks"
 # SQL
 - Structured Query Language 
 - 선언적 언어 cf. 절차적 언어
-- RDMBS 제어에 사용됨
+- RDBMS 제어에 사용됨
 
 ## 관계형 데이터베이스 
 - Oracle, MySQL, MS-SQL, PostgreSQL, ...

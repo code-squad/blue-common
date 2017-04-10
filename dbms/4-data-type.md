@@ -5,8 +5,24 @@ CodeSquad Master <br>
 Hoyoung Jung
 </p>
 
+
 ---
 <!-- page_number: true -->
+# Data Type
+CREATE TABLE 명령에서 컬럼의 유형을 지정할 때 사용
+
+데이터 타입에 따라 저장 방식, 용량, 성능, 지원 기능 등이 달라진다.
+```
+CREATE TABLE USER (
+    USERID CHAR(12) PRIMARY KEY,
+    NAME VARCHAR(64), 
+    MONEY DEC(12),
+    SCORE INT
+    CREATE_TIME DATETIME
+);
+```
+
+---
 # MySQL에서 지원하는 Data Type
  
  | 타입         | 용도             |
