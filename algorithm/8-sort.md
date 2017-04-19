@@ -1,27 +1,39 @@
-<!-- $theme: default -->
-
-# ![70%](images/img_blue.png) 
-# 퀵소트 성능분석 
-CodeSquad Master 
+# ![70%](images/img_blue.png)
+# 퀵소트 성능분석
+CodeSquad Master
 Hoyoung Jung
 
 ---
 <!-- page_number: true -->
-# 퀵소트 
+# Java Sorting 예제
+https://github.com/code-squad/blue-common/blob/master/algorithm/codes/common-blue/src/codesquad/Car.java
 
-평균 $O(n\log n)$ 
+https://github.com/code-squad/blue-common/blob/master/algorithm/codes/common-blue/src/codesquad/CollectionSort.java
+
+---
+```
+```
+
+---
+# 퀵소트와 삽입 정렬 구현하기
+
+https://github.com/code-squad/blue-common/blob/master/algorithm/codes/common-blue/src/codesquad/MySort.java
+
+---
+
+평균 $O(n\log n)$
 
 최악 $O(n^2)$
 
 언제 최악이 될까? 이미 정렬이 된 경우
 
-개선하려면? 피봇의 위치를 잘 정해야 함 
+개선하려면? 피봇의 위치를 잘 정해야 함
  - 랜덤 피봇
  - 배열의 시작, 중간, 끝 값의 중간값
 
 ---
-# 실제 성능 비교 
-
+# 실제 성능 비교
+-
 
 ---
 # 참고자료

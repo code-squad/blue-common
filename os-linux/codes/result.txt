@@ -1,0 +1,9 @@
+-+= 00001 root /sbin/launchd
+ |--= 00038 root /usr/libexec/UserEventAgent (System)
+ |--= 00039 root /usr/sbin/syslogd
+ |--= 00041 root /System/Library/PrivateFrameworks/Uninstall.framework/Resources/uninstalld
+ |--= 00042 root /usr/libexec/kextd
+ |--= 00043 root /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/FSEvents.framework/Versions/A/Support/fseventsd
+ |--= 00045 root /Library/PrivilegedHelperTools/com.wacom.TabletHelper.app/Contents/MacOS/com.wacom.TabletHelper
+ |--= 00046 root /System/Library/PrivateFrameworks/MediaRemote.framework/Support/mediaremoted
+ |--= 00049 _appleevents /System/Library/CoreServices/appleeventsd --server

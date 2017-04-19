@@ -34,7 +34,7 @@ System.out.println(hashmap.get("honux"));
 System.out.println(hashmap.get("crong"));
 
 hashmap.put("honux", 9999);
-System.out.println(hashmap.get("honux"));gg
+System.out.println(hashmap.get("honux"));
 ```
 
 ---
@@ -47,11 +47,6 @@ https://gist.github.com/honux77/11c105933f5990ce97af15e905f8b954
 # 구현하기  
 
 같은 키에 여러 값을 저장할 수 있는 해시맵을 구현하려면? 
-
----
-## Hackerrank 문제 풀이
-
-https://www.hackerrank.com/domains/data-structures/arrays
 
 ---
 # 참고자료
