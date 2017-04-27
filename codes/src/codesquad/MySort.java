@@ -35,16 +35,7 @@ public class MySort {
 	}
 	
 	public void insertionSort(int[] arr) {
-		for(int index = 1 ; index < arr.length ; index++){
-	      int temp = arr[index];
-	      int aux = index - 1;
-
-	      while( (aux >= 0) && ( arr[aux] > temp) ) {
-	         arr[aux+1] = arr[aux];
-	         aux--;
-	      }
-	      arr[aux + 1] = temp;
-	   }
+		// TODO implement
 	}
 	
 	public void print(int[] array) {
@@ -67,6 +58,7 @@ public class MySort {
 	
 
 	public static void main(String[] args) {
+		//TODO complete codes
 		int size = 100;
 		MySort m = new MySort();
 		int[] array = m.genArray(size, true);

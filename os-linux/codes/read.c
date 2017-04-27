@@ -8,7 +8,9 @@ int main(void) {
 	const int len = 64;
 	ssize_t ret;
 	int fd = open("read.c", O_RDONLY);
-	char buf[len];
+	printf("fd=%d\n", fd);
+
+	char buf[len]; //64byte buffer
 	while ((ret = read(fd, buf, len)) != 0) {
 		write(1, buf, ret);
 	}

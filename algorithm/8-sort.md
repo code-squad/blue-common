@@ -11,10 +11,6 @@ https://github.com/code-squad/blue-common/blob/master/algorithm/codes/common-blu
 https://github.com/code-squad/blue-common/blob/master/algorithm/codes/common-blue/src/codesquad/CollectionSort.java
 
 ---
-```
-```
-
----
 # 퀵소트와 삽입 정렬 구현하기
 
 https://github.com/code-squad/blue-common/blob/master/algorithm/codes/common-blue/src/codesquad/MySort.java
@@ -33,7 +29,9 @@ https://github.com/code-squad/blue-common/blob/master/algorithm/codes/common-blu
 
 ---
 # 실제 성능 비교
--
+- 100건 정도의 갯수에 대해 실제 수행시간을 재 보자.
+- 이미 정렬된 배열의 재정렬
+- 랜덤하게 생성된 배열의 정렬
 
 ---
 # 참고자료
