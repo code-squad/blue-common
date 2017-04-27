@@ -6,14 +6,14 @@ Hoyoung Jung
 ---
 <!-- page_number: true -->
 # Java Sorting 예제
-https://github.com/code-squad/blue-common/blob/master/algorithm/codes/common-blue/src/codesquad/Car.java
+https://github.com/code-squad/blue-common/blob/master/codes/common-blue/src/codesquad/Car.java
 
-https://github.com/code-squad/blue-common/blob/master/algorithm/codes/common-blue/src/codesquad/CollectionSort.java
+https://github.com/code-squad/blue-common/blob/master/codes/common-blue/src/codesquad/CollectionSort.java
 
 ---
 # 퀵소트와 삽입 정렬 구현하기
 
-https://github.com/code-squad/blue-common/blob/master/algorithm/codes/common-blue/src/codesquad/MySort.java
+https://github.com/code-squad/blue-common/blob/master/codes/common-blue/src/codesquad/MySort.java
 
 ---
 
