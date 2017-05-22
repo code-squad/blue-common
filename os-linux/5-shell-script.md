@@ -7,14 +7,6 @@ CodeSquad Master
 Hoyoung Jung 
 
 ---
-# 팁: 하루 10초 나를 바꾸기 프로젝트 
-pc 패스워드를 잊지 말아야 할 목표나 소원으로 정한다.
-> 롤챌린저되자
-> 매일영어공부
-> 10키로빼기
-> 50분마다10분휴식
-
----
 # 리눅스 기본 명령어 
 
 ```bash
@@ -124,19 +116,31 @@ I am hello2.sh
 
 ---
 # 스크립트에서 사용할 수 있는 변수들
+- test.sh 
 ```bash
-$ VAR1=$#
-$ echo "num=$#"
-$ echo "parameter: $0 $1 $2 $3" 
-$ echo "parameters: $@"
-$ echo "VAR1 = $VAR1"
-$ echo 'VAR1 = $VAR1'
+#!/bin/bash
+echo "num=$#"
+echo "parameter: $0 $1 $2 $3" 
+echo "parameters: $@"
+echo "VAR1 = $VAR1"
+echo 'VAR1 = $VAR1'
+```
+- 실행
+```bash
+$ chmod +x test.sh
+$ ./tes.sh I am args 1 2 3
+```
+
+---
+# 여러가지 명령
+```
 $ true
 $ echo $?
 $ false
 $ echo $?
 $ echo $RANDOM
 $ echo $RANDOM
+$ echo $(($RANDOM % 10))
 ```
 
 ---
@@ -158,19 +162,20 @@ shell에서 입력과 출력의 방향을 바꾸는 명령
 # 파이프 
 앞 프로그램의 출력의 후속 프로그램의 입력으로 사용 
 ```
-ps -A | grep ssh 
+$ ps -A | grep ssh 
 ```
 ---
 # 키보드 입력 받기
 ```bash
 $ read INPUT
-Hello, Stove 
+Hello, Honux #키보드로 입력
 $ echo $INPUT
-Hello, Stove
+Hello, Honux
 ```
 
 ---
-# 환경 변수 Iteration 
+# Parameter Iteration 
+- test.sh
 ```
 #!/bin/bash
 NUM=0
@@ -179,6 +184,10 @@ do
 	echo "$NUM : $i"
 	NUM=$(($NUM+1))
 done
+```
+- 실행
+```
+$ ./test.sh this is a story about me
 ```
 
 ---
@@ -201,6 +210,7 @@ fi
 test 조건식
 ```
 조건식이 참이면 0, 거짓이면 1을 리턴함 
+> bash의 철학: 괜찮으면 침묵하기 
 ```
 $ test 1 = 2; echo $?
 $ [ 1 = 2 ]; echo $?
@@ -232,7 +242,32 @@ $ [ 1 = 2 ]; echo $?
 [[ $a == hello* ]]
 [[ $a != $b ]]
 ```
+---
+# logical and / or 비교문에 사용하기
+```bash
+# 2 < n && n < 9
+[[ $n -ge 2 ]] && [[ $n -le 9 ]]
+```
+---
+# bash 구구단 예제 
+```
+#!/bin/bash
+echo "몇 단?"
+read n
 
+if [ $n -lt 2 ] || [ $n -gt 9 ]
+then
+	echo "99단은 2단부터 9단까지만 됩니다."
+	exit 1
+fi
+
+#for i in `seq 1 9`
+for i in $(seq 1 9)
+do
+	echo "$n x $i = $(($n * $i))"
+done
+
+```
 ---
 # cron / crontab
 주기적으로 스크립트를 자동실행하게 할 수 있는 프로그램
@@ -243,11 +278,8 @@ http://www.slideshare.net/hoyoung2jung/crontab-39470064
 ## 자동 배포 스크립트 짜기
 1. git fetch
 2. git merge origin/master
-3. maven build
-4. tomcat 중지
-5. 이전 디렉토리 삭제
-6. 빌드된 결과물 복사
-7. tomcat 재시작 
+3. 서버 실행등 기타 작업 수행 
+
 ### 힌트 
 - `cd, rm -rf, cp` 명령을 적절히 잘 활용한다. 
 
@@ -258,7 +290,7 @@ http://www.slideshare.net/hoyoung2jung/crontab-39470064
 변경 사항이 없다면 아무 것도 하지 않고 스크립트를 종료한다.
 
 # 도전 과제 2
-1. cron 에 등록 5분마다 한번씩 실행 
+1. cron 에 등록 1분마다 한번씩 실행 
 2. master 에 변경이 발생하면 배포 스크립트를 실행 
 
 ## 도전과제 힌트 
@@ -267,3 +299,6 @@ $ git fetch
 $ git rev-parse master
 $ git rev-parse origin/master
 ```
+---
+#도전과제 답안
+https://gist.github.com/honux77/422eb595d0aa92931745a9b92baf263e
