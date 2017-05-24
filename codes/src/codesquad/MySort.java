@@ -40,16 +40,43 @@ public class MySort {
 	}
 	
 	private void _mergeSort(int[] arr, int left, int right) {
-		int middle = (left + right)/2;
+		//left =1 , right = 2
+		int middle = (left + right)/2; //1
+		//배열의 원소가 2개 이상이면 재귀 호출 
 		if (left < right) {
-			_mergeSort(arr, left, middle);
-			_mergeSort(arr, middle + 1, right);	
+			_mergeSort(arr, left, middle); //왼쪽 배열 (1,1) 
+			_mergeSort(arr, middle + 1, right);	//오른쪽 배열 (2,2)
+			merge(arr, left, middle, right);
 		}
-		merge(arr, left, middle, right);
+		//원소가 한개면 아무것도 안함 
+
 	}
 	
 	private void merge(int[] arr, int left, int middle, int right) {
+		int[] helper = new int[arr.length]; //임시배열 생성
 		
+		for (int i = left; i <=right; i++) //왼쪽부터 오른쪽까지
+			helper[i] = arr[i];
+		
+		int helperLeft = left;
+		int helperRight = middle + 1; 
+		int current = left;
+		
+		while(helperLeft <= middle && helperRight <= right) {
+			if (helper[helperLeft] <= helper[helperRight]) {
+				arr[current] = helper[helperLeft];
+				helperLeft++;
+			} else {
+				arr[current] = helper[helperRight];
+				helperRight++;
+			}
+			current++;
+		}
+		
+		int remain = middle - helperLeft; 
+		for (int i = 0; i <= remain; i++) {
+			arr[current + i] = helper[helperLeft + i];
+		}
 	}
 	
 	public void insertionSort(int[] arr) {
