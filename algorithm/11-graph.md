@@ -1,144 +1,160 @@
 # ![70%](images/img_blue.png)
-# Tree
+# Graph
 CodeSquad Master
 Hoyoung Jung
 
 ---
 <!-- page_number: true -->
-# 트리
-https://en.wikipedia.org/wiki/Tree_(data_structure)
+# 그래프
+https://en.wikipedia.org/wiki/Graph_(discrete_mathematics)
+
+---
+# 트리는 특별한 형태의 그래프 
+- 순환이 없다. 
+- 방향이 있다. 
+- 자식은 반드시 하나의 부모만 갖는다. 
+
+---
+
+# tree vs graph
+
+| tree | graph |
+|------|-------|
+|node | vertex |
+|link | edge | 
+|root, child | 그런 거 없다 |
+|방향이 항상 있음 | 있을 때도 있고 없을 때도 있음
 
 
 ---
-# 2진 검색 트리 
-https://visualgo.net/ko/bst
+# 그래프의 모드
+
+vertex와 edge외에 추가적으로 방향(direction)과 가중치(weight)를 가질 수 있다. 
+
+> U / U 
+> U / W
+> D / U
+> D / W
 
 ---
-# 자주 사용하는 용어들
-- 이진 트리
-- 이진 순회 트리 
-- 균형트리 / 불균형 트리
-- 완전이진트리 
-- **순회**
-- AVL 트리, 레드블랙 트리 
-- 트라이
+# 그래프의 표현
+
+https://visualgo.net/en/graphds 참조
+
+- Adjacency Matrix
+- Adjacency List
+
+List가 적합한 경우가 많다. 
 
 ---
-# 2진 트리를 구현하는 방법
-1. 배열을 이용한 방법
-2. 참조를 이용한 방법 
-```
-    5
-   / \
-  3   7
-   \   \
-    4   9
-```
-배열 howto?
+# Adjacency list
+
+![Adjacency list](Graph/Images/AdjacencyList.png)
 
 ---
-# 2진 검색 트리(BST) 구현하기 
-- find(v)
-- insert(v)
-- erase(v)
-- printAll()
+# Adjacency matrix
+
+![Adjacency matrix](Graph/Images/AdjacencyMatrix.png)
+
 
 ---
-# find(v)
-```
-TreeNode find(int v)
-```
-binary search를 이용해 검색 수행 
-찾을 경우 해당 노드를 리턴
-못 찾을 경우 `null` 리턴
+# 그래프 비교 
 
+| Operation       | Adjacency List | Adjacency Matrix |
+|-----------------|----------------|------------------|
+| Storage Space   | O(V + E)       | $O(V^2)$           |
+| Add Vertex      | O(1)           | $O(V^2)$           |
+| Add Edge        | O(1)           | O(1)             |
+| Check Adjacency | O(V)           | O(1)             |
 ---
-# insert(v)
-
-중복값을 허용하는 않는 방식으로 구현하는 편이 쉬움
-
-`find(v)` 알고리즘을 수행, 값이 존재하면 해당 위치에 덮어쓰기 수행 
-
-못 찾을 경우 들어갈 노드의 부모 노드에 새 노드를 만들어서 삽입
-
-삽입시 부모의 왼쪽인지 오른쪽인지를 대소 비교로 결정 
-
----
-# erase(v)
-- case 1, 해당 노드가 리프 노드일 경우 -그냥 삭제 
-- case 2, 자식수가 1일 경우 - 부모와 자식을 연결 
-- case 3, 자식수가 2일 경우 - 오른쪽 트리에서 가장 작은 값을 현재 노드로 옮김
-
-https://visualgo.net/en/bst 참조해서 구현하자 
-
----
-## erase(v) case 3
-
-```java
-node = find(v)
-node2 = findMin(node.right)
-node.value = node2.value
-node2.erase(v)
+# 그래프 API 
+```javascript
+number_vertex()
+number_edge()
+insertVertex(vertex)
+existEdge(i, j)
+insertEdge(edge)
+removeEdge(i, j)
 ```
 
 ---
-# BST 구현하기 
-https://gist.github.com/honux77/f855ca307cfb2eb29e2861d618590a34
+# 그래프 구현하기 
 
+![Demo](Graph/Images/Demo1.png)
 
----
-# 2진 트리의 순회(traversal)
-https://en.wikipedia.org/wiki/Tree_traversal
-- 전위
-- 중위
-- 후위
-면접때 자주 물어보므로 꼭 알아야 함 
+https://gist.github.com/honux77/043921363037b4bc5b635bb1871496b0
 
----
-# 전위(Pre-order) 순회
-1. 현재 노드가 비어 있는지 검사 
-2. 현재 노드를 출력 
-3. 왼쪽 서브 트리에 대해 pre-order 호출
-4. 오른쪽 서브 트리에 대해 pre-order 호출 
-![](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Sorted_binary_tree_preorder.svg/220px-Sorted_binary_tree_preorder.svg.png)
-> F, B, A, D, C, E, G, I, H.
+--- 
+# 그래프 순회
+
+트리 순회보다 어렵다.
+방문 체크를 하지 않으면 무한 루프에 빠질 수도 있다. 
 
 ---
-# 전위 순회
-```java
-public void preorder(Tree t)
-if (t != null) {
-    visit(t)
-    preorder(t.left)
-    preorder(t.right)
-}
+# 깊이 우선 탐색 - Depth First Search
+
+조금 쉬운 편 
+
+전체를 방문하고 싶을 때 사용 
+
+스택을 사용해서 구현할 수도 있다.
+
+트리 순회는 전부 DFS 유사품이라고 볼 수 있다.
+
+---
+# DFS
 ```
----
-# 중위(In-order) 순회
-
-1. 현재 노드가 비어 있는지 검사 
-2. 왼쪽 서브 트리에 대해 in-order 호출
-3. 현재 노드를 출력 
-4. 오른쪽 서브 트리에 대해 in-order 호출 
-
----
-# 후위(Post-order) 순회
-1. 현재 노드가 비어 있는지 검사 
-2. 왼쪽 서브 트리에 대해 post-order 호출
-3. 오른쪽 서브 트리에 대해 post-order 호출 
-4. 현재 노드를 출력 
-
+search(vertex) {
+    if (vertex == null) 
+        return;
+    visit(vertex);
+    vertex.visited = true;
+    for (v in vertex.adjacent) {
+    	if (v.visited == false) {
+            search(v)
+         }
+    }
+```
 
 ---
-# 기타 트리 관련 문제 
-- 주어진 이진 트리가 균형 이진 트리인지 판별하는 함수를 구현하시오.
-- 정렬된 배열로부터 높이가 가장 낮은 BST를 생성하는 알고리즘을 구현하시오.
-- 이진 트리를 순회하는 알고리즘을 작성하시오. 재귀를 사용하지 않는 방법은? 
-- 이진 트리가 이진 탐색 트리인지 판별하려면? 
-- 트리를 차수별로 출력하는 알고리즘을 작성하시오.   
+# 넓이 우선 탐색 - BFS
+
+queue가 하나 필요하다. 
+
+인접 이웃을 먼저 다 방문하고 나서 다음 vertex를 방문하는 방법 
+
+
+---
+# BFS
+
+```
+search(vertex) {
+    q = new Queue();
+    vertex.visited = true;
+    visit(vertex);
+    
+    q.enqueue(vertex);
+    while(!q.isEmpty()) {
+        v = q.deque()
+        for (v2 in v.adjacent) {
+            if (v2.visited == false) {
+                visit(v2);
+                v2.visited = true;
+                queue.enqueue(v2);
+             }
+         }
+     }
+```
+
+---
+# 잠깐! 
+
+BST에서 높이별로 출력하려면? 
+
+
 ---
 # 참고자료
-위키 
-코딩인터뷰 완전분석
-Data Structure, Algortihms and Applications in C++ 
-Introduction to algorithms
+
+- 코딩인터뷰 완전분석
+- Swift Algorithm Club 
+- 자료구조 및 알고리즘 C++
