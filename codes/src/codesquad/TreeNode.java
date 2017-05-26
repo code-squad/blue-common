@@ -6,10 +6,17 @@ public class TreeNode {
 	public TreeNode right;
 	//public TreeNode next;
 	public int value;
+	public static int size = 0;
+	public static TreeNode root;
 	
+	public static void init(int v) {
+		TreeNode n = new TreeNode(v);
+		root = n;
+	}
 	public TreeNode(int v) {
 		this.value = v;
 		this.left = this.right = null;
+		size++;
 	}
 	
 	/**
@@ -17,8 +24,8 @@ public class TreeNode {
 	 * @param v 찾는 값  
 	 * @return 찾았을 경우 노드를 리턴, 못 찾으면 null 리턴 
 	 */
-	public TreeNode search(int v) {
-		TreeNode current = this;
+	public static TreeNode search(int v) {
+		TreeNode current = root;
 		while(current != null) {
 			if (current.value == v)
 				return current;
@@ -31,14 +38,14 @@ public class TreeNode {
 		return null;
 	}
 	
-	public void insert(int v) {
-		TreeNode current = this;
+	public static void insert(int v) {
+		TreeNode current = root;
 		TreeNode parent = null;
 		//find
 		while(current != null) {
 			parent = current;
 			if(current.value == v) {
-				this.value = v;
+				// current.value = v;
 				return;
 			}
 			else if (v < current.value) {
@@ -52,87 +59,98 @@ public class TreeNode {
 		//insert
 		//100% current = null
 		TreeNode t = new TreeNode(v);
-		if (t.value < parent.value) {
-			parent.left = t;
-		}
+		if (parent == null)
+			root = t;
 		else {
-			parent.right = t;
-		}	
+			if (t.value < parent.value) {
+				parent.left = t;
+			}
+			else {
+				parent.right = t;
+			}
+		}
 	}
 	
-	public void delete(int v) {
+	public static boolean delete(int v) {
+		if (root == null)
+			return false;
+		//find node with v and set its parent node
+		TreeNode curr = root;
+		TreeNode parent = null;
+		TreeNode child = null;
 		
-		//find v and set parent node
-		TreeNode curr = this, parent = null, child = null;
-
-		while(curr != null && curr.value != v) {
+		while(curr != null && curr.value != v ) {
 			parent = curr;
-			if (v > curr.value) {
+			if (v > curr.value)
 				curr = curr.right;
-			} else
-				curr = curr.left;
+			else 
+				curr = curr.left;			
 		}
 		
-		if (curr == null) 
-			return;
+		//v is not in the tree
+		if (curr == null) {
+			return false;
+		}
 		
 		//case 3 
-		//find successor, smallest node of right subtree
-		//opposite is also ok 
+		//find successor, smallest node of right subtree, and its parent
 		if (curr.left != null && curr.right != null) {
-			TreeNode minNode = curr.right;
+			TreeNode min = curr.right;
 			TreeNode parentMin = curr;
 			
-			while (minNode.left != null) {
-				parentMin = minNode;
-				minNode = minNode.left;
+			while(min.left != null) {
+				parentMin = min;
+				min = min.left;
 			}
 			
-			curr.value = minNode.value;
-			
-			// minNode.delete(minNode.value)
+			curr.value = min.value;
+			//curr.right.delete(min.value);
 			parent = parentMin;
-			curr = minNode;
+			curr = min;
 		}
-			
-		//for case 2 and 3 
-		//set child node 	
-		if (curr.left != null) {
+					
+		//for case 2 and 1
+		if (curr.right != null) 
+			child = curr.right;
+		else 
 			child = curr.left;
-		}
-		else {
-			child = curr.right; //child may be null
-		}
 		
-		//remove current node and link parent and child
-		if (parent.left == curr) {
-			parent.left = child;
+		if (curr == root) {
+			root = child;
 		}
 		else {
-			parent.right = child;
+			if (curr == parent.right) {
+				parent.right = child;
+			} else  {
+				parent.left = child;
+			}
 		}
+		size--;
+		return true;
 	}
 	
-	public void visit(TreeNode t) {
+	public static void visit(TreeNode t) {
 		System.out.print(t.value + " ");
 	}	
 	
-	public void printAll(Order order) {
+	public static void printAll(Order order) {
+			
+		System.out.printf("[length: %d ] ", size);
 		switch (order) {
 		case IN:
-			inorder(this);
+			inorder(root);
 			break;
 		case PRE:
-			preorder(this);
+			preorder(root);
 			break;
 		case POST:
-			postorder(this);
+			postorder(root);
 			break;
 		}
 		System.out.println();
 	}
 	
-	public void preorder(TreeNode t) {
+	public static void preorder(TreeNode t) {
 		if (t != null) {
 			visit(t);
 			preorder(t.left);
@@ -140,7 +158,7 @@ public class TreeNode {
 		}
 	}
 	
-	public void inorder(TreeNode t) {
+	public static void inorder(TreeNode t) {
 		if (t != null) {
 			inorder(t.left);
 			visit(t);
@@ -148,7 +166,7 @@ public class TreeNode {
 		}
 	}
 	
-	public void postorder(TreeNode t) {
+	public static void postorder(TreeNode t) {
 		if (t != null) {
 			inorder(t.left);
 			inorder(t.right);
@@ -158,9 +176,9 @@ public class TreeNode {
 
 	public static void main(String[] args) {
 		int[] arr = { 5, 3, 8, 1, 6, 12, 2, 10 };
-		TreeNode root = new TreeNode(arr[0]);
+		TreeNode.init(arr[0]);
 		for (int i = 1; i < arr.length; i++) {
-			root.insert(arr[i]);
+			TreeNode.insert(arr[i]);
 		}
 		
 		/*
@@ -173,30 +191,23 @@ public class TreeNode {
 		 *     2    10    
  		 */
 		
-		root.printAll(Order.PRE); //5 3 1 2 8 6 12 10 
+		TreeNode.printAll(Order.PRE); //5 3 1 2 8 6 12 10 
 		
 		for (int i = 0; i < arr.length; i ++)
-			System.out.println(root.search(arr[i]).value == arr[i]);
+			System.out.println(TreeNode.search(arr[i]).value == arr[i]);
 		
-		System.out.println(root.search(99) == null);
+		System.out.println(TreeNode.search(99) == null);
 		
-		//case 1
-		root.delete(2);
-		root.inorder(root); //1 3 5 6 8 10 12
-		System.out.println();
-		//case 2
-		root.delete(3);
-		root.inorder(root); //1 5 6 8 10 12
-		System.out.println();
+		for (int i = 0; i < 15; i++) {
+			System.out.println("Delete " + i + ": " + TreeNode.delete(i));
+			TreeNode.printAll(Order.IN);
+		}	
 		
-		//case 3
-		root.delete(8);
-		root.inorder(root); //1 5 6 10 12
-		System.out.println();
-		
-		//delete root
-		root.delete(5);
-		root.inorder(root); //1 5 6 10 12
-		System.out.println();
+		TreeNode.insert(5);
+		TreeNode.insert(3);
+		TreeNode.insert(7);
+		TreeNode.printAll(Order.PRE);
+		TreeNode.printAll(Order.IN);
+		TreeNode.printAll(Order.POST);
 	}
 }
