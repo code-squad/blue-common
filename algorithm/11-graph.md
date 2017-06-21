@@ -4,7 +4,6 @@ CodeSquad Master
 Hoyoung Jung
 
 ---
-<!-- page_number: true -->
 # 그래프
 https://en.wikipedia.org/wiki/Graph_(discrete_mathematics)
 
@@ -18,13 +17,12 @@ https://en.wikipedia.org/wiki/Graph_(discrete_mathematics)
 
 # tree vs graph
 
-| tree | graph |
-|------|-------|
-|node | vertex |
-|link | edge | 
-|root, child | 그런 거 없다 |
+| tree        | graph   |
+| ----------- | ------- |
+| node        | vertex  |
+| link        | edge    |
+| root, child | 그런 거 없다 |
 |방향이 항상 있음 | 있을 때도 있고 없을 때도 있음
-
 
 ---
 # 그래프의 모드
@@ -56,14 +54,13 @@ List가 적합한 경우가 많다.
 
 ![Adjacency matrix](Graph/Images/AdjacencyMatrix.png)
 
-
 ---
 # 그래프 비교 
 
 | Operation       | Adjacency List | Adjacency Matrix |
-|-----------------|----------------|------------------|
-| Storage Space   | O(V + E)       | $O(V^2)$           |
-| Add Vertex      | O(1)           | $O(V^2)$           |
+| --------------- | -------------- | ---------------- |
+| Storage Space   | O(V + E)       | $O(V^2)$         |
+| Add Vertex      | O(1)           | $O(V^2)$         |
 | Add Edge        | O(1)           | O(1)             |
 | Check Adjacency | O(V)           | O(1)             |
 ---
@@ -84,7 +81,7 @@ removeEdge(i, j)
 
 https://gist.github.com/honux77/043921363037b4bc5b635bb1871496b0
 
---- 
+---
 # 그래프 순회
 
 트리 순회보다 어렵다.
@@ -123,7 +120,6 @@ queue가 하나 필요하다.
 
 인접 이웃을 먼저 다 방문하고 나서 다음 vertex를 방문하는 방법 
 
-
 ---
 # BFS
 
@@ -145,12 +141,15 @@ search(vertex) {
          }
      }
 ```
+---
+# 구현 예제
+
+https://gist.github.com/honux77/16ec3ec4df3252028349470738081fc9
 
 ---
 # 잠깐! 
 
 BST에서 높이별로 출력하려면? 
-
 
 ---
 # 참고자료
