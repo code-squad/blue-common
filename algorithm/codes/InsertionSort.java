@@ -35,7 +35,7 @@ public class InsertionSort {
 	public static void shuffle(int[] array) {
 		Random r = new Random();
 		for (int i = array.length - 1; i > 0; i--) {
-			swap(array, i, r.nextInt(i));
+			swap(array, i, r.nextInt(i + 1));
 		}
 	}
 

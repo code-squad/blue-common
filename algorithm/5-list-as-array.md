@@ -42,19 +42,22 @@ https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html
  # 구현하기
 배열을 이용해서 Linear List를 구현해 봅시다. 
 
-IntegerList -> ObjectList -> GenericList 순으로 구현합니다.
+StringList -> ObjectList -> GenericList 순으로 구현합니다.
 
 ```
-public class LinearList {
+public class StringList {
 
-   private Object[] objList;
-   
-   public LinearList();
+   //private
+   private String[] strList;   
+   //init
+   public StringList();
    public boolean empty();
    public int size();
-   public Object get(int index);
-   public int indexOf(Object o);
-   public void insert(Object o);
+   public String get(int index);
+   public int indexOf(String s);
+   //addLast
+   public void insert(String s);
+   //return All
    public String output();   
 }
 ```
@@ -76,7 +79,7 @@ StringBuffer와 혼용해서 사용함
 ---
 # 배열 또는 문자열 관련 문제들 
 
-1. 주어진 문자열을 뒤짚는 메소드를 작성하라.
+1. 주어진 문자열(배열)을 뒤짚는 메소드를 작성하라.
 2. 배열에 하나만 숫자가 중복되어 있다고 할 때 해당하는 숫자를 리턴하는 메소드를 작성하라.
 	- 공간복잡도 O(1) 로 가능한가?
 	- 시간복잡도 O(n) 으로 가능한가?

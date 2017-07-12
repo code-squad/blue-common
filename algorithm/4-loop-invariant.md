@@ -15,6 +15,11 @@ https://ko.wikipedia.org/wiki/%EC%82%BD%EC%9E%85_%EC%A0%95%EB%A0%AC
 https://gist.github.com/honux77/31f67eabf0996a8656d3146ed19afb12
 
 ---
+# Insertion Sort 모법답안
+
+https://gist.github.com/honux77/72fca257b708eda92b74e6ed3af1f08c
+
+---
 # Loop Invariant 
 
 ## 알고리즘의 정확도를 검증하는 방법 
